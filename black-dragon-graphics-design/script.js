@@ -1,40 +1,32 @@
-// GSAP Animations
-gsap.registerPlugin(); // No extra plugin needed for basic
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
-// Animate Hero on load
-gsap.fromTo(".greeting", 
-  { y: 60, opacity: 0 }, 
-  { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" }
-);
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+}
 
-gsap.fromTo(".tagline", 
-  { y: 60, opacity: 0 }, 
-  { y: 0, opacity: 1, duration: 1.2, delay: 0.4, ease: "power3.out" }
-);
+// Highlight current page in navigation
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll('.nav-links a').forEach(link => {
+  if (link.getAttribute('href') === currentPage || 
+      (currentPage === "index.html" && link.getAttribute('href') === "#home")) {
+    link.classList.add('active');
+  }
+});
 
-gsap.fromTo(".hire-btn", 
-  { y: 60, opacity: 0 }, 
-  { y: 0, opacity: 1, duration: 1, delay: 0.8, ease: "power3.out" }
-);
-
-// Portfolio Images (using high-quality placeholder links)
-const portfolioImages = [
-  { src: "https://picsum.photos/id/1015/800/600", title: "Neon Brand Identity" },
-  { src: "https://picsum.photos/id/201/800/600", title: "Social Media Campaign" },
-  { src: "https://picsum.photos/id/237/800/600", title: "Logo Design" },
-  { src: "https://picsum.photos/id/870/800/600", title: "Poster Series" },
-  { src: "https://picsum.photos/id/1018/800/600", title: "Packaging Design" },
-  { src: "https://picsum.photos/id/106/800/600", title: "Event Branding" }
-];
-
-const portfolioGrid = document.getElementById('portfolio-grid');
-
-portfolioImages.forEach(item => {
-  const div = document.createElement('div');
-  div.className = 'portfolio-item';
-  div.innerHTML = `
-    <img src="\( {item.src}" alt=" \){item.title}">
-    <div class="portfolio-overlay">
+// GSAP Animations (if GSAP is included)
+if (typeof gsap !== "undefined") {
+  gsap.from(".section h2", {
+    scrollTrigger: { trigger: ".section h2", start: "top 80%" },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out"
+  });
+}    <div class="portfolio-overlay">
       <h3>${item.title}</h3>
     </div>
   `;
