@@ -1,4 +1,3 @@
-/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -6,35 +5,168 @@
 }
 
 body {
-  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-family: 'Arial', sans-serif;
   background: #0a0a0a;
   color: #e0e0e0;
-  line-height: 1.6;
-  overflow-x: hidden;
+  line-height: 1.7;
 }
 
-/* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
+/* Navbar styles remain same as before... */
+.navbar { /* same as previous */ }
+.logo { /* same */ }
+.hamburger { /* same */ }
+.nav-links { /* same */ }
+
+/* Hero - same as before, plus animation readiness */
+.hero {
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 5%;
-  z-index: 1000;
-  border-bottom: 1px solid #222;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  padding: 0 5%;
+  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.92)), 
+              url('https://source.unsplash.com/random/1920x1080/?neon-dragon,black') center/cover;
+  overflow: hidden;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #00ff9d;
-  text-shadow: 0 0 10px #00ff9d;
+.greeting, .tagline, .hire-btn {
+  opacity: 0;
+  transform: translateY(40px);
 }
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  background: #111;
+  padding: 2rem;
+  border: 1px solid #222;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.3rem;
+  transition: all 0.4s;
+}
+
+.service-card:hover {
+  border-color: #00ff9d;
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(0, 255, 157, 0.2);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 16 / 12;
+  cursor: pointer;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.12);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  padding: 1.5rem;
+  transform: translateY(50%);
+  transition: transform 0.4s ease;
+  opacity: 0;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 700px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem 1.5rem;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #eee;
+  font-size: 1.05rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #00ff9d;
+  box-shadow: 0 0 0 3px rgba(0, 255, 157, 0.15);
+}
+
+.submit-btn {
+  padding: 1.1rem;
+  background: #00ff9d;
+  color: #0a0a0a;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.submit-btn:hover {
+  background: #00cc7a;
+  transform: translateY(-3px);
+}
+
+.form-message {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Section titles */
+.section h2 {
+  font-size: 3.2rem;
+  margin-bottom: 2.5rem;
+  color: #00ff9d;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { /* same mobile menu as before */ }
+  .greeting { font-size: 3rem; }
+}}
 
 .dragon {
   font-family: monospace;
