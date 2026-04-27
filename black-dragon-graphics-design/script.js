@@ -26,15 +26,7 @@ if (typeof gsap !== "undefined") {
     duration: 1,
     ease: "power2.out"
   });
-}    <div class="portfolio-overlay">
-      <h3>${item.title}</h3>
-    </div>
-  `;
-  portfolioGrid.appendChild(div);
-});
-
-// Hamburger Menu (same as before)
-const hamburger = document.getElementById('hamburger');
+}const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 
 hamburger.addEventListener('click', () => {
