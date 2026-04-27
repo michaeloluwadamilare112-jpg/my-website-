@@ -1,40 +1,258 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLACK DRAGON | Graphic Design</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- GSAP CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <span class="dragon">BLACK DRAGON</span>
-    </div>
-    
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+body {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  background: #0a0a0a;
+  color: #e0e0e0;
+  line-height: 1.7;
+}
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1 class="greeting">HI, I'M BLACK DRAGON</h1>
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #00ff9d;
+  text-shadow: 0 0 10px #00ff9d;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background: #00ff9d;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: #00ff9d;
+}
+
+/* Hero (only for home) */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.92)), 
+              url('https://source.unsplash.com/random/1920x1080/?neon-dragon') center/cover;
+}
+
+.hero-content {
+  max-width: 900px;
+  z-index: 2;
+}
+
+.greeting {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #00ff9d, #00ccff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  font-size: 1.35rem;
+  margin-bottom: 3rem;
+}
+
+.hire-btn {
+  padding: 1rem 2.8rem;
+  background: transparent;
+  color: #00ff9d;
+  border: 2px solid #00ff9d;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.hire-btn:hover {
+  background: #00ff9d;
+  color: #0a0a0a;
+  box-shadow: 0 0 25px #00ff9d;
+}
+
+/* General Section */
+.section {
+  padding: 120px 5% 100px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 3.2rem;
+  margin-bottom: 3rem;
+  color: #00ff9d;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: #111;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #222;
+  transition: all 0.4s;
+}
+
+.service-card:hover {
+  border-color: #00ff9d;
+  transform: translateY(-15px);
+  box-shadow: 0 0 30px rgba(0,255,157,0.15);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 16/12;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.15);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 700px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1.1rem 1.6rem;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #eee;
+  font-size: 1.05rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00ff9d;
+  box-shadow: 0 0 0 3px rgba(0,255,157,0.1);
+}
+
+.submit-btn {
+  padding: 1.2rem;
+  background: #00ff9d;
+  color: #0a0a0a;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #00cc7a;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 5%;
+  background: #111;
+  border-top: 1px solid #222;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #0a0a0a;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    gap: 3rem;
+    transition: 0.4s;
+  }
+  .nav-links.active { left: 0; }
+  .greeting { font-size: 3.2rem; }
+}      <h1 class="greeting">HI, I'M BLACK DRAGON</h1>
       <p class="tagline">
         I’m a creative graphic designer focused on building strong visual identities that make brands memorable. 
         I combine creativity with strategy to design logos, social media graphics, posters, and branding materials 
