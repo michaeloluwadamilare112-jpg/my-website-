@@ -1,40 +1,46 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLACK DRAGON | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">BLACK DRAGON</div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-body {
-  font-family: 'Arial', 'Helvetica', sans-serif;
-  background: #0a0a0a;
-  color: #e0e0e0;
-  line-height: 1.7;
-}
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="greeting">HI, I'M BLACK DRAGON</h1>
+      <p class="tagline">
+        I’m a creative graphic designer focused on building strong visual identities that make brands memorable. 
+        I combine creativity with strategy to design logos, social media graphics, posters, and branding materials 
+        that not only look good but also communicate effectively.
+      </p>
+      <a href="contact.html" class="hire-btn">HIRE ME</a>
+    </div>
+  </section>
 
-/* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 5%;
-  z-index: 1000;
-  border-bottom: 1px solid #222;
-}
+  <footer>
+    <p>&copy; 2026 BLACK DRAGON GRAPHIC DESIGN • Lagos, Nigeria</p>
+  </footer>
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #00ff9d;
-  text-shadow: 0 0 10px #00ff9d;
-}
-
-.hamburger {
+  <script src="script.js"></script>
+</body>
+</html>.hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
