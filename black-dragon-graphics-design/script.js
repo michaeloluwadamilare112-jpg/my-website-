@@ -8,11 +8,10 @@ if (hamburger && navLinks) {
   });
 }
 
-// Highlight active page
+// Active page highlighting
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 document.querySelectorAll('.nav-links a').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPage || (currentPage === "index.html" && href.includes("index"))) {
+  if (link.getAttribute('href') === currentPage) {
     link.classList.add('active');
   }
 });
