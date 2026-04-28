@@ -366,3 +366,61 @@ footer {
   .nav-links.active { left: 0; }
   .greeting { font-size: 3.2rem; }
   }
+/* Services Page - Neon Style (Matching Screenshot) */
+.services-section {
+  padding-top: 140px;
+  min-height: 100vh;
+}
+
+.neon-title {
+  font-size: 4rem;
+  color: #00ff9d;
+  text-shadow: 
+    0 0 10px #00ff9d,
+    0 0 20px #00ff9d,
+    0 0 40px #00ff9d;
+  margin-bottom: 4rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+.services-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: #111;
+  padding: 1.8rem 2rem;
+  border-radius: 12px;
+  border: 2px solid #222;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ddd;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.service-card:hover,
+.service-card.active {
+  border-color: #00ff9d;
+  color: #00ff9d;
+  box-shadow: 0 0 25px rgba(0, 255, 157, 0.5);
+  transform: scale(1.03);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .neon-title {
+    font-size: 3rem;
+  }
+  
+  .service-card {
+    font-size: 1.2rem;
+    padding: 1.6rem 1.5rem;
+  }
+}
