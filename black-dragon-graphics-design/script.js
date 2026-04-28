@@ -8,22 +8,11 @@ if (hamburger && navLinks) {
   });
 }
 
-// Highlight current page in navigation
+// Highlight active page
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 document.querySelectorAll('.nav-links a').forEach(link => {
-  if (link.getAttribute('href') === currentPage || 
-      (currentPage === "index.html" && link.getAttribute('href') === "#home")) {
+  const href = link.getAttribute('href');
+  if (href === currentPage || (currentPage === "index.html" && href.includes("index"))) {
     link.classList.add('active');
   }
 });
-
-// GSAP Animations (if GSAP is included)
-if (typeof gsap !== "undefined") {
-  gsap.from(".section h2", {
-    scrollTrigger: { trigger: ".section h2", start: "top 80%" },
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out"
-  });
-}
