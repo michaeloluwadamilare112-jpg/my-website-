@@ -93,7 +93,14 @@ body {
 
 .tagline {
   font-size: 1.35rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
 .hire-btn {
@@ -112,6 +119,26 @@ body {
   background: #00ff9d;
   color: #0a0a0a;
   box-shadow: 0 0 25px #00ff9d;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem 2rem;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  transition: all 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background: #20ba5a;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
 }
 
 /* General Section */
@@ -187,7 +214,7 @@ body {
   opacity: 1;
 }
 
-/* Contact Page Specific */
+/* Contact Page */
 .contact-hero {
   height: 50vh;
   background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
@@ -259,7 +286,6 @@ body {
   font-size: 1.1rem;
   border-radius: 50px;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 .submit-btn:hover {
@@ -290,9 +316,6 @@ body {
   border-color: #00ff9d;
   transform: translateY(-3px);
 }
-
-.whatsapp-btn:hover { background: #25D366; color: white; border-color: #25D366; }
-.email-btn:hover { background: #00ccff; color: white; border-color: #00ccff; }
 
 .pricing-preview {
   margin-top: 2.5rem;
