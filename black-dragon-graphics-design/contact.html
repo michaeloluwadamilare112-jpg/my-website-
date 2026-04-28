@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - BLACK DRAGON</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">BLACK DRAGON</div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="contact-hero">
+    <div class="contact-hero-content">
+      <h1>Let’s Build Something Amazing</h1>
+      <p class="trust-text">
+        Tell me about your design needs and I’ll get back to you within 24 hours.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="contact-container">
+      <div class="form-container">
+        <h2>Start Your Project</h2>
+        <form id="project-form" class="project-form">
+          <div class="form-grid">
+            <input type="text" id="name" placeholder="Your Full Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+          </div>
+          <input type="tel" id="whatsapp" placeholder="WhatsApp Number (e.g. +2348012345678)" required>
+          
+          <select id="service" required>
+            <option value="" disabled selected>Select Service Needed</option>
+            <option value="Logo Design">Logo Design</option>
+            <option value="Branding & Identity">Branding & Identity</option>
+            <option value="Social Media Graphics">Social Media Graphics</option>
+            <option value="Posters & Flyers">Posters & Flyers</option>
+            <option value="Packaging Design">Packaging Design</option>
+            <option value="Motion Graphics">Motion Graphics</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <select id="budget" required>
+            <option value="" disabled selected>Budget Range (₦)</option>
+            <option value="Under 100k">Under ₦100,000</option>
+            <option value="100k-300k">₦100,000 - ₦300,000</option>
+            <option value="300k-500k">₦300,000 - ₦500,000</option>
+            <option value="500k-1M">₦500,000 - ₦1,000,000</option>
+            <option value="Above 1M">Above ₦1,000,000</option>
+          </select>
+
+          <textarea id="description" rows="6" placeholder="Describe your project (goals, timeline, references, etc.)" required></textarea>
+
+          <button type="submit" class="submit-btn">SEND PROJECT BRIEF</button>
+        </form>
+      </div>
+
+      <div class="contact-sidebar">
+        <h3>Instant Contact</h3>
+        <a href="https://wa.me/234XXXXXXXXXX" target="_blank" class="contact-btn whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+        <a href="mailto:hello@blackdragon.design" class="contact-btn email-btn">
+          <i class="fas fa-envelope"></i> Send Email
+        </a>
+
+        <div class="pricing-preview">
+          <h3>Starting Prices</h3>
+          <ul>
+            <li><strong>Logo Design</strong> — Starts at ₦80,000</li>
+            <li><strong>Flyer / Poster</strong> — Starts at ₦35,000</li>
+            <li><strong>Social Media Kit</strong> — Starts at ₦120,000</li>
+            <li><strong>Full Brand Identity</strong> — Starts at ₦350,000</li>
+          </ul>
+          <small>Final price depends on complexity and number of revisions.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 BLACK DRAGON GRAPHIC DESIGN • Lagos, Nigeria</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('project-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const msg = document.createElement('div');
+      msg.style.cssText = 'margin-top:20px;padding:15px;background:#00ff9d;color:#0a0a0a;border-radius:8px;font-weight:bold;';
+      msg.textContent = "✅ Project brief received! I'll reply within 24 hours.";
+      this.appendChild(msg);
+
+      setTimeout(() => {
+        this.reset();
+        msg.remove();
+      }, 4000);
+    });
+  </script>
+</body>
+              </html>
